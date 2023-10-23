@@ -4,6 +4,8 @@
  */
 package tp3_heroic_fantasy_amanieu;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Thibault
@@ -19,7 +21,20 @@ public class TP3_Heroic_Fantasy_AMANIEU {
         Baton Chêne = new Baton ("Chêne",4,7);
         Baton Charme = new Baton ("Charme",5,6);
         
-        
+        ArrayList<Arme> armes = new ArrayList<>();
+
+        Epee epee1 = new Epee("Excalibur", 7, 5);
+        Epee epee2 = new Epee("Durandal", 4, 7);
+        armes.add(epee1);
+        armes.add(epee2);
+
+        Baton baton1 = new Baton("Chêne", 4, 7);
+        Baton baton2 = new Baton("Charme", 5, 6);
+        armes.add(baton1);
+        armes.add(baton2);
+
+        for (Arme arme : armes) {
+            System.out.println(arme);
+        }
     }
-    
 }
