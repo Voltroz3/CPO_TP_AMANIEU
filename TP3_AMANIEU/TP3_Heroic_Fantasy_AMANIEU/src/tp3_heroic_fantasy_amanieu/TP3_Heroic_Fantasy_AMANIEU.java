@@ -35,9 +35,28 @@ public class TP3_Heroic_Fantasy_AMANIEU {
         Baton baton2 = new Baton("Charme", 5, 6);
         armes.add(baton1);
         armes.add(baton2);
+        
+        Magicien Gandalf = new Magicien("Gandalf", 65 , true);
+        Magicien Garcimore = new Magicien("Garcimore", 44, false);
+        
+        guerrier Conan = new guerrier("Conan", 78, false);
+        guerrier lahister = new guerrier("Lahister", 45, true);
+       
 
-        for (Arme arme : armes) {
-            System.out.println(arme);
+        // Créez deux magiciens
+        Magicien magicien1 = new Magicien("Gandalf", 65, true); // 
+        Magicien magicien2 = new Magicien("Garcimore", 44, false); //  
+
+        ArrayList<Personnage> personnages = new ArrayList<>();
+        Personnage guerrier1 = null;
+        personnages.add(guerrier1);
+        Personnage guerrier2 = null;
+        personnages.add(guerrier2);
+        personnages.add(magicien1);
+        personnages.add(magicien2);
+
+        for (Personnage personnage : personnages) {
+            System.out.println(personnage);
         }
     }
 }
