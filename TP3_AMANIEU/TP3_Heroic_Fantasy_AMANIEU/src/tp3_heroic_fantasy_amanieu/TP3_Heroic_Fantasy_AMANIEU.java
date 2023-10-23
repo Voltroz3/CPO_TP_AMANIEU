@@ -4,6 +4,9 @@
  */
 package tp3_heroic_fantasy_amanieu;
 
+import Arme.Arme;
+import Arme.Epee;
+import Arme.Baton;
 import java.util.ArrayList;
 
 /**
