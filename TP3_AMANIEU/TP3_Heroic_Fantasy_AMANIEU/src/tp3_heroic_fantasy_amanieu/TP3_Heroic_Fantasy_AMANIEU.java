@@ -4,20 +4,18 @@
  */
 package tp3_heroic_fantasy_amanieu;
 
+import Personnage.guerrier;
+import Personnage.Magicien;
+import Personnage.Personnage;
 import Arme.Arme;
 import Arme.Epee;
 import Arme.Baton;
 import java.util.ArrayList;
 
-/**
- *
- * @author Thibault
- */
+ 
 public class TP3_Heroic_Fantasy_AMANIEU {
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String[] args) {
         Epee Excalibur = new Epee("Excalibur", 7,5);
         Epee Durandal = new Epee ("Durandal",4,7);
@@ -43,20 +41,22 @@ public class TP3_Heroic_Fantasy_AMANIEU {
         guerrier lahister = new guerrier("Lahister", 45, true);
        
 
-        // Créez deux magiciens
-        Magicien magicien1 = new Magicien("Gandalf", 65, true); // 
-        Magicien magicien2 = new Magicien("Garcimore", 44, false); //  
 
         ArrayList<Personnage> personnages = new ArrayList<>();
         Personnage guerrier1 = null;
         personnages.add(guerrier1);
         Personnage guerrier2 = null;
         personnages.add(guerrier2);
+        Personnage magicien1 = null;
         personnages.add(magicien1);
+        Personnage magicien2 = null;
         personnages.add(magicien2);
 
         for (Personnage personnage : personnages) {
             System.out.println(personnage);
+            
+         tab Armes = new []; 
+            
         }
     }
 }
