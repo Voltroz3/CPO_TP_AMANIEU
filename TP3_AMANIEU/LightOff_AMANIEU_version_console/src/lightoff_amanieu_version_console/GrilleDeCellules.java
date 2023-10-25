@@ -108,7 +108,12 @@ public class GrilleDeCellules {
             } else {
                 activerDiagonaleMontante();
             }
+        
         }
+    }
+
+    void reinitialiserGrille() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
 
