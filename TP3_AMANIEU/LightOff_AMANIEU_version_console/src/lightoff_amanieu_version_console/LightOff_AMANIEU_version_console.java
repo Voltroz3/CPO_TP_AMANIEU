@@ -41,7 +41,7 @@ public class LightOff_AMANIEU_version_console {
         System.out.println(grille);
 
         grille.activerLigneDeCellules(1);
-        System.out.println("Grille après activation de la ligne 1 :");
+        System.out.println("Grille après activation de la ligne  :");
         System.out.println(grille);
 
         grille.activerColonneDeCellules(2);
