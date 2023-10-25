@@ -20,7 +20,7 @@ public class LightOff_AMANIEU_version_console {
         cellule1.allumer();
         System.out.println("État de la cellule 1 (après allumage) : " + cellule1.getEtat());
 
-        // Éteignez la cellule
+        // Éteignez la cellul
         cellule1.eteindre();
         System.out.println("État de la cellule 1 (après extinction) : " + cellule1.getEtat());
 
