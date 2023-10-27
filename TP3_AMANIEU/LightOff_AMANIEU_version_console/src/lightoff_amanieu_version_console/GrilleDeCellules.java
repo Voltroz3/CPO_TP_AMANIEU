@@ -8,7 +8,7 @@ import java.util.Random;
 
 /**
  *
- * @author Thibault
+ * 
  */
 public class GrilleDeCellules {
     private CelluleLumineuse[][] matriceCellules;
@@ -47,18 +47,30 @@ public class GrilleDeCellules {
         }
         return str.toString();
     }
+
+    /**
+     * cette methode parcours la ligne indiqué et passe l'etat de la cellule à "allumé"
+     * @param idLigne
+     */
     public void activerLigneDeCellules(int idLigne) {
         for (int i = 0; i < matriceCellules[idLigne].length; i++) {
             matriceCellules[idLigne][i].allumer();
         }
     }
 
+    /**
+     *cette methode parcours la colonne indiqué et passe l'etat de la cellule à "allumé"
+     * @param idColonne
+     */
     public void activerColonneDeCellules(int idColonne) {
         for (int i = 0; i < matriceCellules.length; i++) {
             matriceCellules[i][idColonne].allumer();
         }
     }
 
+    /**
+     *cette methode parcours la diagonale descendante indiqué et passe l'etat de la cellule à "allumé"
+     */
     public void activerDiagonaleDescendante() {
         int min = Math.min(matriceCellules.length, matriceCellules[0].length);
         for (int i = 0; i < min; i++) {
@@ -66,6 +78,9 @@ public class GrilleDeCellules {
         }
     }
 
+    /**
+     *cette methode parcours la la diagonale montante indiqué et passe l'etat de la cellule à "allumé"
+     */
     public void activerDiagonaleMontante() {
         int lignes = matriceCellules.length;
         int colonnes = matriceCellules[0].length;
@@ -75,6 +90,9 @@ public class GrilleDeCellules {
         }
     }
 
+    /**
+     *cette methode active un nombre aleatoire entre 1 et 3 puis en fonction du resultat actice une colonne , une ligne ou l'une des diagonale
+     */
     public void activerLigneColonneOuDiagonaleAleatoire() {
         Random random = new Random();
         int choix = random.nextInt(4);
@@ -92,6 +110,10 @@ public class GrilleDeCellules {
         }
     }
 
+    /**
+     * cette methode effectue un mélange aléatoire de la grille de cellules en effectuant un certain nombre de tours spécifié par la variable nbTours. À chaque tour, il sélectionne aléatoirement l'une des quatre actions possibles et l'applique à la grille
+     * @param nbTours
+     */
     public void melangerMatriceAleatoirement(int nbTours) {
         Random random = new Random();
 

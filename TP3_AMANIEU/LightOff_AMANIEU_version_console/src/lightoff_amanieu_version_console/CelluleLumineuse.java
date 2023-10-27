@@ -10,20 +10,22 @@ package lightoff_amanieu_version_console;
  * @author Thibault
  */
 public class CelluleLumineuse {
-    // Enumération pour représenter l'état de la cellule lumineuse
+    // Enum�ration pour repr�senter l'�tat de la cellule lumineuse
     public enum Etat {
-        ALLUMEE, ETEINTE
+         O, X
     }
 
-    private Etat etat; // État actuel de la cellule lumineuse
+    private Etat etat; // �tat actuel de la cellule lumineuse
 
+    /**
+     * Par d�faut, la cellule lumineuse est �teinte à sa cr�ation
+     */
     public CelluleLumineuse() {
-        // Par défaut, la cellule lumineuse est éteinte à sa création
-        etat = Etat.ETEINTE;
+        etat = Etat.X;
     }
 
     /**
-     *Cette méthode permet d'obtenir l'état actuel de la cellule lumineuse. Elle renvoie une valeur de l'énumération Etat, qui peut être "ALLUMEE" ou "ETEINTE"
+     *Cette m�thode permet d'obtenir l'�tat actuel de la cellule lumineuse. Elle renvoie une valeur de l'enumeration Etat, qui peut être "ALLUMEE" ou "ETEINTE"
      * @return etat: ALLUMER ou ETEINT
      */
     public Etat getEtat() {
@@ -31,17 +33,17 @@ public class CelluleLumineuse {
     }
 
     /**
-     *Cette méthode permet de changer l'état de la cellule lumineuse en "alllumé"
+     *Cette methode permet de changer l'etat de la cellule lumineuse en "alllum"
      */
     public void allumer() {
-        etat = Etat.ALLUMEE;
+        etat = Etat.O;
     }
 
     /**
-     *Cette méthode permet de changer l'état de la cellule lumineuse en "éteinte"
+     *Cette m�thode permet de changer l'état de la cellule lumineuse en "�teinte"
      */
     public void eteindre() {
-        etat = Etat.ETEINTE;
+        etat = Etat.X;
     }
 }
 
