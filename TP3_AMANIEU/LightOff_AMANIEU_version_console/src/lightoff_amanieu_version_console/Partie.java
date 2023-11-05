@@ -10,10 +10,13 @@ import java.util.Scanner;
  *
  * @author Thibault
  */
-public class Partie {private GrilleDeCellules grille;
+public class Partie {
+    private GrilleDeCellules grille;
+    private int tours;
 
     public Partie(int lignes, int colonnes) {
         grille = new GrilleDeCellules(lignes, colonnes);
+        tours = 0;
     }
 
     public void jouer() {
@@ -21,7 +24,9 @@ public class Partie {private GrilleDeCellules grille;
 
         System.out.println("Bienvenue dans le jeu des cellules lumineuses !");
 
-        while (true) {
+        while (!aGagne() && tours < 20) {
+            System.out.println("Tour " + tours);
+
             System.out.println("État actuel de la grille :");
             System.out.println(grille);
 
@@ -66,8 +71,31 @@ public class Partie {private GrilleDeCellules grille;
                 default:
                     System.out.println("Action non valide, veuillez choisir une option valide.");
             }
+
+            tours++;
+        }
+
+        if (aGagne()) {
+            System.out.println("Félicitations ! Vous avez gagné en " + tours + " tours.");
+        } else {
+            System.out.println("Vous avez atteint la limite de 20 tours. Le jeu est terminé.");
         }
     }
+
+
+    private boolean aGagne() {
+     
+    // Parcourez la grille et vérifiez si une seule cellule n'est pas dans l'état "allumé".
+    for (int i = 0; i < grille.matriceCellules.length; i++) {
+        for (int j = 0; j < grille.matriceCellules[i].length; j++) {
+            if (grille.matriceCellules[i][j].getEtat() != CelluleLumineuse.Etat.O) {
+                return false; // Si une seule cellule n'est pas allumée, la partie n'est pas gagnée.
+            }
+        }
+    }
+    return true; 
 }
+}
+
     
 

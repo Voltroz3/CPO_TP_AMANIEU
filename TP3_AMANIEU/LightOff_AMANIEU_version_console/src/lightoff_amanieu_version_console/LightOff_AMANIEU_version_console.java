@@ -24,6 +24,7 @@ public class LightOff_AMANIEU_version_console {
         cellule1.eteindre();
         System.out.println("État de la cellule 1 (après extinction) : " + cellule1.getEtat());
 
+        
         // Créez une deuxième cellule lumineuse (allumée)
         CelluleLumineuse cellule2 = new CelluleLumineuse();
 

@@ -11,7 +11,7 @@ import java.util.Random;
  * 
  */
 public class GrilleDeCellules {
-    private CelluleLumineuse[][] matriceCellules;
+    CelluleLumineuse[][] matriceCellules;
 
     /**
      *Crée une grille de cellules lumineuses avec le nombre de lignes et de colonnes spécifiées
