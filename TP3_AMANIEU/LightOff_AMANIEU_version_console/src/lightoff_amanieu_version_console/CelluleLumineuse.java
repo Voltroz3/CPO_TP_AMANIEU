@@ -36,7 +36,11 @@ public class CelluleLumineuse {
      *Cette methode permet de changer l'etat de la cellule lumineuse en "alllum"
      */
     public void allumer() {
-        etat = Etat.O;
+        if (etat == Etat.X) {
+            etat = Etat.O; // Si éteinte, allumer
+        } else {
+            etat = Etat.X; // Si allumée, éteindre
+        }
     }
 
     /**
