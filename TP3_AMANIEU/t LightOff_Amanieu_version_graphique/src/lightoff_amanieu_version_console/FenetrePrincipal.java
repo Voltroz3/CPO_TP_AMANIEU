@@ -1,6 +1,5 @@
 package lightoff_amanieu_version_console;
 
-
 import java.awt.GridLayout;
 import javax.swing.JButton;
 
@@ -8,7 +7,6 @@ import javax.swing.JButton;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author Thibault
@@ -25,24 +23,27 @@ public class FenetrePrincipal extends javax.swing.JFrame {
         int nbCoups;
         initComponents();
         int nbLignes = 10;
-int nbColonnes = 10; 
-this.grille = new GrilleDeCellules (nbLignes, nbColonnes);
+        int nbColonnes = 10;
+        this.grille = new GrilleDeCellules(nbLignes, nbColonnes);
 
-PanneauGrille.setLayout(new GridLayout(nbLignes, nbColonnes));
-for (int i=0; i < nbLignes; i++) {
- for (int j=0; j < nbColonnes; j++ ) {
-CelluleGraphique bouton_cellule = new CelluleGraphique( grille.matriceCellules[i][j], 36,36);
-PanneauGrille.add(bouton_cellule); // ajout au Jpanel PanneauGrille
- }
-}
-
+        PanneauGrille.setLayout(new GridLayout(nbLignes, nbColonnes));
+        for (int i = 0; i < nbLignes; i++) {
+            for (int j = 0; j < nbColonnes; j++) {
+                CelluleGraphique bouton_cellule = new CelluleGraphique(grille.matriceCellules[i][j], 36, 36);
+                PanneauGrille.add(bouton_cellule); // ajout au Jpanel PanneauGrille
+            }
+        }
+        getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20,
+                nbColonnes * 40, nbLignes * 40));
+        this.pack();
+        this.revalidate();
 
     }
-    public void initialiserPartie() {
- grille.eteindreToutesLesCellules();
- grille.melangerMatriceAleatoirement(10);
- }
 
+    public void initialiserPartie() {
+        grille.eteindreToutesLesCellules();
+        grille.melangerMatriceAleatoirement(10);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -54,6 +55,7 @@ PanneauGrille.add(bouton_cellule); // ajout au Jpanel PanneauGrille
     private void initComponents() {
 
         PanneauGrille = new javax.swing.JPanel();
+        PanneauBoutonVerticaux = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -64,15 +66,31 @@ PanneauGrille.add(bouton_cellule); // ajout au Jpanel PanneauGrille
 
         PanneauGrille.setBackground(new java.awt.Color(200, 242, 242));
 
+        javax.swing.GroupLayout PanneauBoutonVerticauxLayout = new javax.swing.GroupLayout(PanneauBoutonVerticaux);
+        PanneauBoutonVerticaux.setLayout(PanneauBoutonVerticauxLayout);
+        PanneauBoutonVerticauxLayout.setHorizontalGroup(
+            PanneauBoutonVerticauxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        PanneauBoutonVerticauxLayout.setVerticalGroup(
+            PanneauBoutonVerticauxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 97, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout PanneauGrilleLayout = new javax.swing.GroupLayout(PanneauGrille);
         PanneauGrille.setLayout(PanneauGrilleLayout);
         PanneauGrilleLayout.setHorizontalGroup(
             PanneauGrilleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 360, Short.MAX_VALUE)
+            .addGroup(PanneauGrilleLayout.createSequentialGroup()
+                .addComponent(PanneauBoutonVerticaux, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 260, Short.MAX_VALUE))
         );
         PanneauGrilleLayout.setVerticalGroup(
             PanneauGrilleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 360, Short.MAX_VALUE)
+            .addGroup(PanneauGrilleLayout.createSequentialGroup()
+                .addGap(111, 111, 111)
+                .addComponent(PanneauBoutonVerticaux, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(152, Short.MAX_VALUE))
         );
 
         getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 360, 360));
@@ -113,22 +131,22 @@ PanneauGrille.add(bouton_cellule); // ajout au Jpanel PanneauGrille
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-this.grille.activerLigneDeCellules(0);
- repaint();    }//GEN-LAST:event_jButton1ActionPerformed
+        this.grille.activerLigneDeCellules(0);
+        repaint();    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-this.grille.activerLigneDeCellules(1);
- repaint();        // TODO add your handling code here:
+        this.grille.activerLigneDeCellules(1);
+        repaint();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-this.grille.activerLigneDeCellules(2);
- repaint();        // TODO add your handling code here:
+        this.grille.activerLigneDeCellules(2);
+        repaint();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-this.grille.activerLigneDeCellules(3);
- repaint();        // TODO add your handling code here:
+        this.grille.activerLigneDeCellules(3);
+        repaint();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
@@ -166,7 +184,10 @@ this.grille.activerLigneDeCellules(3);
         });
     }
 
+    {
+       
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel PanneauBoutonVerticaux;
     private javax.swing.JPanel PanneauGrille;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
