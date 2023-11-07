@@ -1,6 +1,8 @@
 package lightoff_amanieu_version_console;
 
+import java.awt.Component;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 /*
@@ -19,7 +21,6 @@ public class FenetrePrincipal extends javax.swing.JFrame {
      * Creates new form FenetrePrincipal
      */
     public FenetrePrincipal() {
-        GrilleDeCellules grille = null;
         int nbCoups;
         initComponents();
         int nbLignes = 10;
@@ -37,8 +38,29 @@ public class FenetrePrincipal extends javax.swing.JFrame {
                 nbColonnes * 40, nbLignes * 40));
         this.pack();
         this.revalidate();
+PanneauBoutonVerticaux.setLayout(new GridLayout(nbLignes, 1));
+       
+ getContentPane().add(PanneauBoutonVerticaux, new
+org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 1 * 40, nbLignes * 40));
+ this.pack();
+ this.revalidate();
+    } // création du panneau de boutons verticaux (pour les lignes)
+ for (i = 0; i < nbLignes; i++) {
+ JButton bouton_ligne = new JButton();
+ ActionListener ecouteurClick = new ActionListener() {
+ final int j = i;
+     private int i;
+ @Override
+ public void actionPerformed(ActionEvent e) {
+ grille.activerLigneDeCellules(j);
+repaint();
+ }
+ };
+ bouton_ligne.addActionListener(ecouteurClick);
+ PanneauBoutonsVerticaux.add(bouton_ligne);
 
-    }
+ }
+
 
     public void initialiserPartie() {
         grille.eteindreToutesLesCellules();
@@ -70,11 +92,11 @@ public class FenetrePrincipal extends javax.swing.JFrame {
         PanneauBoutonVerticaux.setLayout(PanneauBoutonVerticauxLayout);
         PanneauBoutonVerticauxLayout.setHorizontalGroup(
             PanneauBoutonVerticauxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 46, Short.MAX_VALUE)
         );
         PanneauBoutonVerticauxLayout.setVerticalGroup(
             PanneauBoutonVerticauxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 97, Short.MAX_VALUE)
+            .addGap(0, 360, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout PanneauGrilleLayout = new javax.swing.GroupLayout(PanneauGrille);
@@ -82,15 +104,13 @@ public class FenetrePrincipal extends javax.swing.JFrame {
         PanneauGrilleLayout.setHorizontalGroup(
             PanneauGrilleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanneauGrilleLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
                 .addComponent(PanneauBoutonVerticaux, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 260, Short.MAX_VALUE))
+                .addContainerGap(288, Short.MAX_VALUE))
         );
         PanneauGrilleLayout.setVerticalGroup(
             PanneauGrilleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanneauGrilleLayout.createSequentialGroup()
-                .addGap(111, 111, 111)
-                .addComponent(PanneauBoutonVerticaux, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(152, Short.MAX_VALUE))
+            .addComponent(PanneauBoutonVerticaux, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 360, 360));
@@ -184,7 +204,7 @@ public class FenetrePrincipal extends javax.swing.JFrame {
         });
     }
 
-    {
+    
        
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanneauBoutonVerticaux;
