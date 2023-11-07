@@ -21,7 +21,7 @@ public class FenetrePrincipal extends javax.swing.JFrame {
      * Creates new form FenetrePrincipal
      */
     public FenetrePrincipal() {
-        GrilleDeCellules grille;
+        GrilleDeCellules grille = null;
         int nbCoups;
         initComponents();
         int nbLignes = 10;
@@ -31,8 +31,8 @@ this.grille = new GrilleDeCellules (nbLignes, nbColonnes);
 PanneauGrille.setLayout(new GridLayout(nbLignes, nbColonnes));
 for (int i=0; i < nbLignes; i++) {
  for (int j=0; j < nbColonnes; j++ ) {
- JButton bouton_cellule = new JButton(); // création d'un bouton
- PanneauGrille.add(bouton_cellule); // ajout au Jpanel PanneauGrille
+CelluleGraphique bouton_cellule = new CelluleGraphique( grille.matriceCellules[i][j], 36,36);
+PanneauGrille.add(bouton_cellule); // ajout au Jpanel PanneauGrille
  }
 }
 
