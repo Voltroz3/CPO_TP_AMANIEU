@@ -42,19 +42,19 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                  <Component id="PanneauBoutonVerticaux" min="-2" max="-2" attributes="0"/>
+                  <Component id="PanneauBoutonsVerticaux" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="288" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="PanneauBoutonVerticaux" alignment="0" max="32767" attributes="0"/>
+              <Component id="PanneauBoutonsVerticaux" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="PanneauBoutonVerticaux">
+        <Container class="javax.swing.JPanel" name="PanneauBoutonsVerticaux">
 
           <Layout>
             <DimensionLayout dim="0">

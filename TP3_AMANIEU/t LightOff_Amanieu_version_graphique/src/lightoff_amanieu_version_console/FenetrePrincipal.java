@@ -2,6 +2,7 @@ package lightoff_amanieu_version_console;
 
 import java.awt.Component;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
@@ -16,7 +17,7 @@ import javax.swing.JButton;
 public class FenetrePrincipal extends javax.swing.JFrame {
 
     private final GrilleDeCellules grille;
-
+   int i;
     /**
      * Creates new form FenetrePrincipal
      */
@@ -25,10 +26,11 @@ public class FenetrePrincipal extends javax.swing.JFrame {
         initComponents();
         int nbLignes = 10;
         int nbColonnes = 10;
+     
         this.grille = new GrilleDeCellules(nbLignes, nbColonnes);
 
         PanneauGrille.setLayout(new GridLayout(nbLignes, nbColonnes));
-        for (int i = 0; i < nbLignes; i++) {
+        for (i = 0; i < nbLignes; i++) {
             for (int j = 0; j < nbColonnes; j++) {
                 CelluleGraphique bouton_cellule = new CelluleGraphique(grille.matriceCellules[i][j], 36, 36);
                 PanneauGrille.add(bouton_cellule); // ajout au Jpanel PanneauGrille
@@ -38,29 +40,28 @@ public class FenetrePrincipal extends javax.swing.JFrame {
                 nbColonnes * 40, nbLignes * 40));
         this.pack();
         this.revalidate();
-PanneauBoutonVerticaux.setLayout(new GridLayout(nbLignes, 1));
-       
- getContentPane().add(PanneauBoutonVerticaux, new
-org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 1 * 40, nbLignes * 40));
- this.pack();
- this.revalidate();
-    } // création du panneau de boutons verticaux (pour les lignes)
- for (i = 0; i < nbLignes; i++) {
- JButton bouton_ligne = new JButton();
- ActionListener ecouteurClick = new ActionListener() {
- final int j = i;
-     private int i;
- @Override
- public void actionPerformed(ActionEvent e) {
- grille.activerLigneDeCellules(j);
-repaint();
- }
- };
- bouton_ligne.addActionListener(ecouteurClick);
- PanneauBoutonsVerticaux.add(bouton_ligne);
+        PanneauBoutonsVerticaux.setLayout(new GridLayout(nbLignes, 1));
 
- }
+        getContentPane().add(PanneauBoutonsVerticaux, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 1 * 40, nbLignes * 40));
+        this.pack();
+        this.revalidate();
+        for (i = 0; i < nbLignes; i++) {
+            JButton bouton_ligne = new JButton();
+            ActionListener ecouteurClick = new ActionListener() {
+                final int j = i;
+                
 
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    grille.activerLigneDeCellules(j);
+                    repaint();
+                }
+            };
+            bouton_ligne.addActionListener(ecouteurClick);
+            PanneauBoutonsVerticaux.add(bouton_ligne);
+        } // création du panneau de boutons verticaux (pour les lignes)
+
+    }
 
     public void initialiserPartie() {
         grille.eteindreToutesLesCellules();
@@ -77,7 +78,7 @@ repaint();
     private void initComponents() {
 
         PanneauGrille = new javax.swing.JPanel();
-        PanneauBoutonVerticaux = new javax.swing.JPanel();
+        PanneauBoutonsVerticaux = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -88,14 +89,14 @@ repaint();
 
         PanneauGrille.setBackground(new java.awt.Color(200, 242, 242));
 
-        javax.swing.GroupLayout PanneauBoutonVerticauxLayout = new javax.swing.GroupLayout(PanneauBoutonVerticaux);
-        PanneauBoutonVerticaux.setLayout(PanneauBoutonVerticauxLayout);
-        PanneauBoutonVerticauxLayout.setHorizontalGroup(
-            PanneauBoutonVerticauxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout PanneauBoutonsVerticauxLayout = new javax.swing.GroupLayout(PanneauBoutonsVerticaux);
+        PanneauBoutonsVerticaux.setLayout(PanneauBoutonsVerticauxLayout);
+        PanneauBoutonsVerticauxLayout.setHorizontalGroup(
+            PanneauBoutonsVerticauxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 46, Short.MAX_VALUE)
         );
-        PanneauBoutonVerticauxLayout.setVerticalGroup(
-            PanneauBoutonVerticauxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        PanneauBoutonsVerticauxLayout.setVerticalGroup(
+            PanneauBoutonsVerticauxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 360, Short.MAX_VALUE)
         );
 
@@ -105,12 +106,12 @@ repaint();
             PanneauGrilleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanneauGrilleLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addComponent(PanneauBoutonVerticaux, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PanneauBoutonsVerticaux, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(288, Short.MAX_VALUE))
         );
         PanneauGrilleLayout.setVerticalGroup(
             PanneauGrilleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanneauBoutonVerticaux, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PanneauBoutonsVerticaux, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 360, 360));
@@ -204,10 +205,9 @@ repaint();
         });
     }
 
-    
-       
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel PanneauBoutonVerticaux;
+    private javax.swing.JPanel PanneauBoutonsVerticaux;
     private javax.swing.JPanel PanneauGrille;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
